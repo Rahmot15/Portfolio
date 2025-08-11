@@ -6,7 +6,7 @@ import ProjectCard from '../Components/ProjectCard';
 
 const Home = () => {
     return (
-        <div>
+        <div id='home'>
             <HeroSection></HeroSection>
             <AboutMeSection/>
             <Skills/>

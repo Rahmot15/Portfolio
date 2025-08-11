@@ -146,7 +146,7 @@ const ProjectCard = () => {
   }, []);
 
   return (
-    <section>
+    <section id="projects">
       <div className="relative z-10 container mx-auto px-4 py-20">
         {/* Section Header */}
         <motion.div
@@ -155,7 +155,7 @@ const ProjectCard = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl adlam-display-regular md:text-5xl font-bold text-white mb-4">
             Featured{" "}
             <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
               Projects
@@ -233,7 +233,7 @@ const ProjectCard = () => {
               {/* Project Content */}
               <div className="p-6">
                 <motion.h3
-                  className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300"
+                  className="text-xl font-mono font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300"
                   layoutId={`title-${project.id}`}
                 >
                   {project.name}

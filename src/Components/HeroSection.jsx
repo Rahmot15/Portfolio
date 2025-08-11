@@ -120,10 +120,10 @@ const HeroSection = () => {
               </div>
 
               <motion.h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-tight">
-                <span className="block">MD. Rahmatullah</span>
+                <span className="block adlam-display-regular">MD. Rahmatullah</span>
                 <div className="flex items-center mt-2">
                   <div className="w-12 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 mr-4" />
-                  <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent text-2xl md:text-3xl font-semibold">
+                  <span className="bg-gradient-to-r from-blue-400 font-mono to-purple-500 bg-clip-text text-transparent text-2xl md:text-3xl font-semibold">
                     <Typewriter
                       words={TEXTS}
                       loop={0}
@@ -140,7 +140,7 @@ const HeroSection = () => {
 
             <motion.p
               variants={itemVariants}
-              className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl"
+              className="text-gray-300 jetbrains-mono text-lg md:text-xl leading-relaxed max-w-2xl"
             >
               I'm a passionate MERN Stack Web Developer with hands-on experience
               in building full-stack applications using React, Node.js, Express,

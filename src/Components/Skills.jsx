@@ -52,7 +52,7 @@ const Skills = () => {
   };
 
   return (
-    <section className="relative min-h-screen  py-20 overflow-hidden">
+    <section id="skills" className="relative min-h-screen  py-20 overflow-hidden">
       {/* Floating Background Elements */}
       <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-cyan-500/5 to-green-500/5 rounded-full blur-3xl animate-pulse" />
@@ -60,7 +60,7 @@ const Skills = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl adlam-display-regular md:text-5xl font-bold text-white mb-4">
             My{" "}
             <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
               Skills
@@ -88,7 +88,7 @@ const Skills = () => {
                   >
                     <IconComponent className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-semibold text-white">
+                  <h3 className="text-2xl jetbrains-mono font-semibold text-white">
                     {category.title}
                   </h3>
                 </div>

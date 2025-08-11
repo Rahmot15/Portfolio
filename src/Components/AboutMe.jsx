@@ -23,10 +23,10 @@ const AboutMe = () => {
   }, []);
 
   return (
-    <section>
+    <section id="about">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16" data-aos="fade-up">
+        <div className="text-center adlam-display-regular mb-16" data-aos="fade-up">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             About{" "}
             <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">

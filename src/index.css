@@ -1,2 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap");
 @import "tailwindcss";
 @plugin "daisyui";
+
+.adlam-display-regular {
+  font-family: "ADLaM Display", system-ui;
+}
+
+.jetbrains-mono {
+  font-family: "JetBrains Mono", monospace;
+}
