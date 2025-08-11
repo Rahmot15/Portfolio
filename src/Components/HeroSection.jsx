@@ -83,7 +83,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="lg:my-0 my-30">
+    <section className="mt-30 min-h-screen">
       {/* Floating Elements */}
       <motion.div
         variants={floatingVariants.float}
@@ -179,11 +179,15 @@ const HeroSection = () => {
               className="flex flex-wrap items-center gap-4"
             >
               {/* Resume Button */}
-              <button className="group flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25">
+              <a
+                href="/Resume.pdf"
+                download="Resume.pdf"
+                className="group flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25"
+              >
                 <FileText className="w-5 h-5 mr-2" />
                 Download Resume
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
             </motion.div>
           </div>
 
