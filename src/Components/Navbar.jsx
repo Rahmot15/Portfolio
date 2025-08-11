@@ -34,7 +34,7 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Navbar */}
-      <nav className="w-10/12 mx-auto rounded-2xl mt-4 fixed top-0 left-0 right-0 z-50 bg-white/5  backdrop-blur-md">
+      <nav className="max-w-7xl mx-auto rounded-2xl mt-4 fixed top-0 left-0 right-0 z-50 bg-white/5  backdrop-blur-md">
         <div className=" px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -49,7 +49,7 @@ const Navbar = () => {
                   <span className="text-purple-400">developer</span>{" "}
                   <span className="text-pink-400">=</span>
                   <span className="text-yellow-400">
-                    &quot;Rahmatullah&quot;
+                    &quot;rahmot&quot;
                   </span>
                 </span>
               </motion.div>
@@ -66,9 +66,7 @@ const Navbar = () => {
                     key={item.name}
                     onClick={() => handleNavClick(item.name)}
                     className={`group relative flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                      isActive
-                        ? "text-white"
-                        : "text-gray-300 hover:text-white"
+                      isActive ? "text-white" : "text-gray-300 hover:text-white"
                     }`}
                   >
                     <div
@@ -99,14 +97,6 @@ const Navbar = () => {
                 );
               })}
             </div>
-
-            {/* Resume Button */}
-            {/* <div className="hidden md:flex items-center">
-              <button className="flex items-center px-4 py-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-lg transition-colors duration-200">
-                <FileText size={16} className="mr-2" />
-                Resume
-              </button>
-            </div> */}
 
             {/* Mobile menu button */}
             <button

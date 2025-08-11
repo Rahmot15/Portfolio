@@ -102,7 +102,7 @@ const HeroSection = () => {
       />
 
       {/* Main Content */}
-      <div className="relative z-10  w-10/12 mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -244,7 +244,7 @@ const HeroSection = () => {
 
               {/* Main Photo Container */}
               <div className="relative w-80 h-80 md:w-96 md:h-96">
-                <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700/50 overflow-hidden shadow-2xl">
+                <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-full border border-gray-700/50 overflow-hidden shadow-2xl">
                   {/* Photo Placeholder */}
                   <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
                     <div className="text-center">
