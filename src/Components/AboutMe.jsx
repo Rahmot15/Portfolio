@@ -153,33 +153,6 @@ const AboutMe = () => {
             </div>
           </div>
         </div>
-
-        {/* Stats Row */}
-        <div
-          data-aos="fade-up"
-          data-aos-delay="200"
-          className="grid grid-cols-2 md:grid-cols-4 gap-6"
-        >
-          {[
-            { number: "2+", label: "Years Experience", icon: Zap },
-            { number: "10+", label: "Projects Completed", icon: Target },
-            { number: "5+", label: "Technologies", icon: Code2 },
-            { number: "50+", label: "Problems Solved", icon: Lightbulb },
-          ].map((stat, index) => (
-            <div
-              key={index}
-              className="text-center p-6 bg-gray-800/30 backdrop-blur-sm border border-gray-700/30 rounded-xl hover:border-gray-600/50 transition-all duration-300 hover:scale-105"
-            >
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl mb-3">
-                <stat.icon className="w-6 h-6 text-white" />
-              </div>
-              <div className="text-2xl font-bold text-white mb-1">
-                {stat.number}
-              </div>
-              <div className="text-gray-400 text-sm">{stat.label}</div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
