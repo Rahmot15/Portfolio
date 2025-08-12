@@ -42,8 +42,12 @@ const ContactMe = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
+    const serviceID = import.meta.env.VITE_Service_ID;
+    const templateID = import.meta.env.VITE_Template_ID;
+    const publicKey = import.meta.env.VITE_Public_Key;
+
     emailjs
-      .send("service_t8opkhn", "template_sij0bsh", form, "nXrPcDVxfi5DF4WjJ")
+      .send(serviceID, templateID, form, publicKey)
       .then(() => {
         Swal.fire({
           position: "center",
