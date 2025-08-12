@@ -57,7 +57,7 @@ const Footer = () => {
     <footer className="py-12 mt-20">
       <div className="container mx-auto px-4">
         {/* Name Section */}
-        <div className="flex items-center justify-center text-center mb-8">
+        <div className="flex transform hover:scale-110 transition-all duration-300 items-center justify-center text-center mb-8">
           <div
             data-aos="fade-up"
             data-aos-delay="100"

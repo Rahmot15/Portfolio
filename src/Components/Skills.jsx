@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { CheckCircle, Code, Database, Settings, Sparkles } from "lucide-react";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 
 const Skills = () => {
   useEffect(() => {
@@ -51,8 +53,43 @@ const Skills = () => {
     },
   };
 
+  const stats = [
+    {
+      number: 15,
+      suffix: "+",
+      label: "Technologies",
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      number: 2,
+      suffix: "+",
+      label: "Years Experience",
+      color: "from-green-500 to-emerald-500",
+    },
+    {
+      number: 20,
+      suffix: "+",
+      label: "Projects Built",
+      color: "from-purple-500 to-pink-500",
+    },
+    {
+      number: 90,
+      suffix: "%",
+      label: "Success Rate",
+      color: "from-orange-500 to-red-500",
+    },
+  ];
+
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.3,
+  });
+
   return (
-    <section id="skills" className="relative min-h-screen  py-20 overflow-hidden">
+    <section
+      id="skills"
+      className="relative min-h-screen  py-20 overflow-hidden"
+    >
       {/* Floating Background Elements */}
       <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-cyan-500/5 to-green-500/5 rounded-full blur-3xl animate-pulse" />
@@ -70,7 +107,7 @@ const Skills = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid lg:grid-cols-3 gap-8 mb-16 ">
           {Object.entries(skillsData).map(([key, category], categoryIndex) => {
             const IconComponent = category.icon;
 
@@ -94,7 +131,7 @@ const Skills = () => {
                 </div>
 
                 {/* Skills List */}
-                <div className="space-y-6">
+                <div className="space-y-6" ref={ref}>
                   {category.skills.map((skill, skillIndex) => (
                     <div key={skill.name} className="group/skill">
                       {/* Skill Name & Verified Icon */}
@@ -105,18 +142,30 @@ const Skills = () => {
                           </span>
                           <CheckCircle className="w-4 h-4 text-green-400" />
                         </div>
+
+                        {/* CountUp number animates only when inView */}
                         <span className="text-gray-400 text-sm font-medium">
-                          {skill.level}%
+                          {inView ? (
+                            <CountUp
+                              start={0}
+                              end={skill.level}
+                              duration={1.5}
+                              suffix="%"
+                              delay={categoryIndex * 0.2 + skillIndex * 0.1}
+                            />
+                          ) : (
+                            `0%`
+                          )}
                         </span>
                       </div>
 
                       {/* Progress Bar */}
                       <div className="w-full bg-gray-700/50 rounded-full h-2 overflow-hidden">
                         <div
-                          className={`h-full ${skill.color} rounded-full transition-all duration-1000 ease-out transform origin-left hover:scale-x-105`}
+                          className={`h-full ${skill.color} rounded-full transition-all duration-1500 ease-out transform origin-left hover:scale-x-105`}
                           style={{
-                            width: `${skill.level}%`,
-                            animationDelay: `${
+                            width: inView ? `${skill.level}%` : "0%",
+                            transitionDelay: `${
                               categoryIndex * 200 + skillIndex * 100
                             }ms`,
                           }}
@@ -155,28 +204,7 @@ const Skills = () => {
           data-aos-delay="600"
           className="grid grid-cols-2 md:grid-cols-4 gap-6"
         >
-          {[
-            {
-              number: "15+",
-              label: "Technologies",
-              color: "from-blue-500 to-cyan-500",
-            },
-            {
-              number: "2+",
-              label: "Years Experience",
-              color: "from-green-500 to-emerald-500",
-            },
-            {
-              number: "20+",
-              label: "Projects Built",
-              color: "from-purple-500 to-pink-500",
-            },
-            {
-              number: "90%",
-              label: "Success Rate",
-              color: "from-orange-500 to-red-500",
-            },
-          ].map((stat, index) => (
+          {stats.map((stat, index) => (
             <div
               key={index}
               className="text-center p-6 bg-gray-800/30 backdrop-blur-sm border border-gray-700/30 rounded-xl hover:border-gray-600/50 transition-all duration-300 hover:scale-105 group"
@@ -185,7 +213,14 @@ const Skills = () => {
                 className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${stat.color} rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300`}
               >
                 <span className="text-white font-bold text-lg">
-                  {stat.number}
+                  <CountUp
+                    start={0}
+                    end={stat.number}
+                    duration={30}
+                    suffix={stat.suffix}
+                    enableScrollSpy={true}
+                    scrollSpyOnce={true}
+                  />
                 </span>
               </div>
               <div className="text-gray-400 text-sm font-medium">
