@@ -12,12 +12,12 @@ import {
   Monitor,
 } from "lucide-react";
 import AOS from "aos";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 const ProjectDetails = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const projectData = location.state?.project;
-  console.log(projectData);
 
   useEffect(() => {
     // Initialize AOS
@@ -34,7 +34,27 @@ const ProjectDetails = () => {
 
   return (
     <section>
-      <div className="relative z-10 container mx-auto px-4 py-36">
+      <div className="relative z-10 container mx-auto px-4 md:py-36 py-26">
+        {/* Back Button */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-8"
+        >
+          <motion.button
+            className="group flex items-center gap-3 px-6 py-3 bg-gray-800/50 hover:bg-gray-700/50 text-white rounded-xl border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300"
+            whileHover={{ x: -5 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            <ArrowLeft className="w-5 h-5 group-hover:text-blue-400 transition-colors duration-300" />
+            <span className="font-medium">Back to Projects</span>
+          </motion.button>
+        </motion.div>
+
         {/* Project Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
