@@ -133,7 +133,6 @@ const projects = [
 
 const ProjectCard = () => {
   useEffect(() => {
-    // Initialize AOS only once
     if (typeof window !== "undefined") {
       import("aos/dist/aos.css");
       AOS.init({

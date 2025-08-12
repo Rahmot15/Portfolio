@@ -163,25 +163,17 @@ const Navbar = () => {
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
-                    className={`group relative flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                      isActive ? "text-white" : "text-gray-300 hover:text-white"
+                    className={`w-full flex items-center px-4 py-3 rounded-lg text-left transition-all duration-200 ${
+                      isActive
+                        ? "text-white bg-white/10"
+                        : "text-gray-300 hover:text-white hover:bg-white/5"
                     }`}
                   >
-                    <IconComponent size={18} />
-                    <span
-                      className={`ml-2 transition-all duration-300 ease-in-out overflow-hidden whitespace-nowrap ${
-                        isActive
-                          ? "max-w-24 opacity-100"
-                          : "max-w-0 opacity-0 group-hover:max-w-24 group-hover:opacity-100"
-                      }`}
-                    >
-                      {item.name}
-                    </span>
-                    <div
-                      className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-white transition-all duration-300 ${
-                        isActive ? "w-6" : "w-0 group-hover:w-6"
-                      }`}
-                    />
+                    <IconComponent size={20} />
+                    <span className="ml-3 font-medium">{item.name}</span>
+                    {isActive && (
+                      <div className="ml-auto w-2 h-2 bg-green-400 rounded-full" />
+                    )}
                   </button>
                 );
               })}
