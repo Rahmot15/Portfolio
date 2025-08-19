@@ -6,6 +6,14 @@
   font-family: "ADLaM Display", system-ui;
 }
 
-.jetbrains-mono {
-  font-family: "JetBrains Mono", monospace;
+.nunito-fonts {
+  font-family: "Nunito", sans-serif;
+}
+
+.image-scroll-hover img {
+  transition: transform 2s linear;
+}
+
+.image-scroll-hover:hover img {
+  transform: translateY(-50%);
 }

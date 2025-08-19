@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
-import AOS from "aos";
 import { Link } from "react-router";
+import Aos from "aos";
 const projects = [
   {
     id: 1,
@@ -61,7 +61,7 @@ const projects = [
     ],
     briefDescription:
       "A virtual bookshelf web app that lets users browse, add, edit, delete books, and write reviews with star ratings. Features user authentication and a responsive design.",
-    liveProjectLink: "https://bookstacker.example.com",
+    liveProjectLink: "https://bookshelf-client-auth.web.app",
     githubRepositoryLinkClientSide:
       "https://github.com/Rahmot15/Bookshelf-Project-client-side.git",
     githubRepositoryLinkServerSide:
@@ -135,7 +135,7 @@ const ProjectCard = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       import("aos/dist/aos.css");
-      AOS.init({
+      Aos.init({
         duration: 800,
         easing: "ease-out-cubic",
         once: true,
@@ -176,12 +176,13 @@ const ProjectCard = () => {
               transition={{ duration: 0.3 }}
             >
               {/* Project Image Container */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-64 overflow-hidden image-scroll-hover">
                 <motion.img
                   src={project.image}
                   alt={project.name}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-                  whileHover={{ scale: 1.05 }}
+                  className="w-full min-h-full object-contain transition-all duration-700"
+                  whileHover={{ y: "-100%" }}
+                  transition={{ duration: 10, ease: "linear" }}
                 />
 
                 {/* Overlay on hover */}

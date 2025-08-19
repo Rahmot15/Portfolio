@@ -83,7 +83,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="mt-30 min-h-screen relative">
+    <section className="mt-30 lg:mb-0 mb-20 min-h-screen relative">
       {/* Floating Elements */}
       <motion.div
         variants={floatingVariants.float}
@@ -125,7 +125,7 @@ const HeroSection = () => {
                 </span>
                 <div className="flex items-center mt-2">
                   <div className="w-12 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 mr-4" />
-                  <span className="bg-gradient-to-r from-blue-400 font-mono to-purple-500 bg-clip-text text-transparent text-2xl md:text-3xl font-semibold">
+                  <span className="bg-gradient-to-r from-blue-400 font-mono to-purple-500 bg-clip-text text-transparent text-xl md:text-3xl font-semibold">
                     <Typewriter
                       words={TEXTS}
                       loop={0}
@@ -142,12 +142,11 @@ const HeroSection = () => {
 
             <motion.p
               variants={itemVariants}
-              className="text-gray-300 jetbrains-mono text-lg md:text-xl leading-relaxed max-w-2xl"
+              className="text-gray-300 font-mono text-lg md:text-xl leading-relaxed max-w-2xl"
             >
-              I'm a passionate MERN Stack Web Developer with hands-on experience
-              in building full-stack applications using React, Node.js, Express,
-              and MongoDB. I specialize in creating responsive, optimized, and
-              scalable web interfaces.
+              I’m a passionate MERN Stack Developer with hands-on experience in
+              building responsive, optimized, and scalable web applications
+              using React, Node.js, Express, and MongoDB.
             </motion.p>
 
             {/* Social Links */}
@@ -182,8 +181,8 @@ const HeroSection = () => {
             >
               {/* Resume Button */}
               <a
-                href="/Resume.pdf"
-                download="Resume.pdf"
+                href="/Purple and White Clean and Professional Resume.pdf"
+                download="Purple and White Clean and Professional Resume.pdf"
                 className="group flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25"
               >
                 <FileText className="w-5 h-5 mr-2" />
@@ -251,7 +250,7 @@ const HeroSection = () => {
                   <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
                     <div className="text-center">
                       <div className="bg-gradient-to-br from-blue-400 to-purple-500 rounded-full mx-auto flex items-center justify-center">
-                        <img src="./me.jpg" alt="" />
+                        <img src="./me3.png" alt="" />
                       </div>
                     </div>
                   </div>

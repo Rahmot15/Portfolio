@@ -11,8 +11,8 @@ import {
   Server,
   Monitor,
 } from "lucide-react";
-import AOS from "aos";
 import { useLocation, useNavigate } from "react-router";
+import Aos from "aos";
 
 const ProjectDetails = () => {
   const location = useLocation();
@@ -20,10 +20,9 @@ const ProjectDetails = () => {
   const projectData = location.state?.project;
 
   useEffect(() => {
-    // Initialize AOS
     if (typeof window !== "undefined") {
       import("aos/dist/aos.css");
-      AOS.init({
+      Aos.init({
         duration: 800,
         easing: "ease-out-cubic",
         once: true,
@@ -64,14 +63,14 @@ const ProjectDetails = () => {
         >
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent adlam-display-regular">
-              {projectData.name}
+              {projectData?.name}
             </span>
           </h1>
 
           {/* Action Buttons */}
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <motion.a
-              href={projectData.liveProjectLink}
+              href={projectData?.liveProjectLink}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white rounded-xl font-semibold transition-all duration-300"
@@ -83,7 +82,7 @@ const ProjectDetails = () => {
             </motion.a>
 
             <motion.a
-              href={projectData.githubRepositoryLinkClientSide}
+              href={projectData?.githubRepositoryLinkClientSide}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white rounded-xl font-semibold transition-all duration-300"
@@ -95,7 +94,7 @@ const ProjectDetails = () => {
             </motion.a>
 
             <motion.a
-              href={projectData.githubRepositoryLinkServerSide}
+              href={projectData?.githubRepositoryLinkServerSide}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-white rounded-xl font-semibold transition-all duration-300"
@@ -111,109 +110,97 @@ const ProjectDetails = () => {
         {/* Main Content */}
         <div className="max-w-7xl mx-auto space-y-12">
           {/* Project Image & Overview */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Project Image */}
-            <motion.div
-              data-aos="fade-right"
-              data-aos-duration="1000"
-              className="order-2 lg:order-1"
-            >
-              <motion.div
-                className="relative group bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-xl rounded-2xl overflow-hidden border border-gray-700/50"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            {/* Left Side: Project Image */}
+            <motion.div data-aos="fade-right" className="lg:col-span-1 order-1">
+              <motion.div className="relative group bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-xl rounded-2xl overflow-hidden border border-gray-700/50">
                 <img
-                  src={projectData.image}
-                  alt={projectData.name}
-                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                  src={projectData?.image}
+                  alt={projectData?.name}
+                  className="w-full h-auto object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </motion.div>
             </motion.div>
 
-            {/* Project Overview */}
-            <motion.div
-              data-aos="fade-left"
-              data-aos-duration="1000"
-              className="order-1 lg:order-2 bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-xl rounded-2xl p-8 border border-gray-700/50 h-fit"
-            >
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <div className="p-2 bg-blue-600/20 rounded-lg">
-                  <Target className="w-6 h-6 text-blue-400" />
-                </div>
-                Project Overview
-              </h2>
-              <p className="text-gray-300 text-lg leading-relaxed">
-                {projectData.briefDescription}
-              </p>
-            </motion.div>
-          </div>
+            {/* Right Side: All 3 Cards */}
+            <div className="lg:col-span-2 flex flex-col gap-4 order-2">
+              {/* Project Overview */}
+              <motion.div
+                data-aos="fade-left"
+                className="bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-xl rounded-2xl p-8 border border-gray-700/50"
+              >
+                <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                  <div className="p-2 bg-blue-600/20 rounded-lg">
+                    <Target className="w-6 h-6 text-blue-400" />
+                  </div>
+                  Project Overview
+                </h2>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  {projectData?.briefDescription}
+                </p>
+              </motion.div>
 
-          {/* Technology Stack & Challenges */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Technology Stack */}
-            <motion.div
-              data-aos="fade-right"
-              data-aos-duration="1000"
-              className="bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-xl rounded-2xl p-8 border border-gray-700/50"
-            >
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <div className="p-2 bg-purple-600/20 rounded-lg">
-                  <Code className="w-6 h-6 text-purple-400" />
+              {/* Technology Stack */}
+              <motion.div
+                data-aos="fade-left"
+                className="bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-xl rounded-2xl p-8 border border-gray-700/50"
+              >
+                <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                  <div className="p-2 bg-purple-600/20 rounded-lg">
+                    <Code className="w-6 h-6 text-purple-400" />
+                  </div>
+                  Technology Stack
+                </h2>
+                <div className="grid grid-cols-2 gap-3">
+                  {projectData?.mainTechnologyStack.map((tech, index) => (
+                    <motion.div
+                      key={index}
+                      className="group p-3 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 text-center"
+                      whileHover={{ scale: 1.05, y: -3 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <span className="text-white font-medium group-hover:text-purple-400 transition-colors duration-300 text-sm">
+                        {tech}
+                      </span>
+                    </motion.div>
+                  ))}
                 </div>
-                Technology Stack
-              </h2>
-              <div className="grid grid-cols-2 gap-3">
-                {projectData.mainTechnologyStack.map((tech, index) => (
-                  <motion.div
-                    key={index}
-                    className="group p-3 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 text-center"
-                    whileHover={{ scale: 1.05, y: -3 }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <span className="text-white font-medium group-hover:text-purple-400 transition-colors duration-300 text-sm">
-                      {tech}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+              </motion.div>
 
-            {/* Challenges Faced */}
-            <motion.div
-              data-aos="fade-left"
-              data-aos-duration="1000"
-              className="bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-xl rounded-2xl p-8 border border-gray-700/50"
-            >
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <div className="p-2 bg-red-600/20 rounded-lg">
-                  <Target className="w-6 h-6 text-red-400" />
+              {/* Challenges Faced */}
+              <motion.div
+                data-aos="fade-left"
+                className="bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-xl rounded-2xl p-8 border border-gray-700/50"
+              >
+                <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                  <div className="p-2 bg-red-600/20 rounded-lg">
+                    <Target className="w-6 h-6 text-red-400" />
+                  </div>
+                  Challenges Faced
+                </h2>
+                <div className="space-y-3">
+                  {projectData?.challengesFaced.map((challenge, index) => (
+                    <motion.div
+                      key={index}
+                      className="flex items-start gap-3 p-3 bg-gray-800/30 rounded-xl border border-gray-700/30 hover:border-red-500/30 transition-all duration-300"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      whileHover={{ x: 5 }}
+                    >
+                      <div className="p-1 bg-red-600/20 rounded-full flex-shrink-0 mt-1">
+                        <CheckCircle className="w-3 h-3 text-red-400" />
+                      </div>
+                      <span className="text-gray-300 leading-relaxed text-sm">
+                        {challenge}
+                      </span>
+                    </motion.div>
+                  ))}
                 </div>
-                Challenges Faced
-              </h2>
-              <div className="space-y-3">
-                {projectData.challengesFaced.map((challenge, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-start gap-3 p-3 bg-gray-800/30 rounded-xl border border-gray-700/30 hover:border-red-500/30 transition-all duration-300"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ x: 5 }}
-                  >
-                    <div className="p-1 bg-red-600/20 rounded-full flex-shrink-0 mt-1">
-                      <CheckCircle className="w-3 h-3 text-red-400" />
-                    </div>
-                    <span className="text-gray-300 leading-relaxed text-sm">
-                      {challenge}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </div>
 
           {/* Improvements & Future Plans */}
@@ -231,23 +218,25 @@ const ProjectDetails = () => {
                 Potential Improvements
               </h2>
               <div className="space-y-3">
-                {projectData.potentialImprovements.map((improvement, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-start gap-3 p-3 bg-gray-800/30 rounded-xl border border-gray-700/30 hover:border-yellow-500/30 transition-all duration-300"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <div className="p-1 bg-yellow-600/20 rounded-full flex-shrink-0 mt-1">
-                      <Lightbulb className="w-3 h-3 text-yellow-400" />
-                    </div>
-                    <span className="text-gray-300 leading-relaxed text-sm">
-                      {improvement}
-                    </span>
-                  </motion.div>
-                ))}
+                {projectData?.potentialImprovements.map(
+                  (improvement, index) => (
+                    <motion.div
+                      key={index}
+                      className="flex items-start gap-3 p-3 bg-gray-800/30 rounded-xl border border-gray-700/30 hover:border-yellow-500/30 transition-all duration-300"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      <div className="p-1 bg-yellow-600/20 rounded-full flex-shrink-0 mt-1">
+                        <Lightbulb className="w-3 h-3 text-yellow-400" />
+                      </div>
+                      <span className="text-gray-300 leading-relaxed text-sm">
+                        {improvement}
+                      </span>
+                    </motion.div>
+                  )
+                )}
               </div>
             </motion.div>
 
@@ -264,7 +253,7 @@ const ProjectDetails = () => {
                 Future Plans
               </h2>
               <div className="space-y-3">
-                {projectData.futurePlans.map((plan, index) => (
+                {projectData?.futurePlans.map((plan, index) => (
                   <motion.div
                     key={index}
                     className="flex items-start gap-3 p-3 bg-gray-800/30 rounded-xl border border-gray-700/30 hover:border-green-500/30 transition-all duration-300"
@@ -303,7 +292,7 @@ const ProjectDetails = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <motion.a
-                href={projectData.liveProjectLink}
+                href={projectData?.liveProjectLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-xl font-semibold transition-all duration-300"
@@ -314,7 +303,7 @@ const ProjectDetails = () => {
                 Visit Live Site
               </motion.a>
               <motion.a
-                href={projectData.githubRepositoryLinkClientSide}
+                href={projectData?.githubRepositoryLinkClientSide}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white rounded-xl font-semibold transition-all duration-300"
@@ -325,7 +314,7 @@ const ProjectDetails = () => {
                 Client Repo
               </motion.a>
               <motion.a
-                href={projectData.githubRepositoryLinkServerSide}
+                href={projectData?.githubRepositoryLinkServerSide}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-xl font-semibold transition-all duration-300"

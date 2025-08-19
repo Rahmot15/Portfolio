@@ -125,7 +125,7 @@ const Skills = () => {
                   >
                     <IconComponent className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl jetbrains-mono font-semibold text-white">
+                  <h3 className="text-2xl font-mono font-semibold text-white">
                     {category.title}
                   </h3>
                 </div>
