@@ -146,7 +146,7 @@ const ProjectCard = () => {
 
   return (
     <section id="projects">
-      <div className="relative z-10 container mx-auto px-4 py-20">
+      <div className="relative z-10 container mx-auto px-4 pt-24">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
@@ -154,7 +154,7 @@ const ProjectCard = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl adlam-display-regular md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl inter-fonts md:text-5xl font-bold text-white mb-4">
             Featured{" "}
             <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
               Projects

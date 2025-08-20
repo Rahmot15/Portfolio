@@ -85,7 +85,7 @@ const ContactMe = () => {
 
   return (
     <section id="contact">
-      <div className="relative z-10 container mx-auto px-4 mb-20">
+      <div className="relative z-10 container mx-auto px-4 mb-20 md:pt-24">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
@@ -93,12 +93,13 @@ const ContactMe = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl inter-fonts md:text-5xl font-bold text-white mb-4">
             Get In{" "}
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Touch
             </span>
           </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full" />
         </motion.div>
 
         {/* Main Contact Content */}

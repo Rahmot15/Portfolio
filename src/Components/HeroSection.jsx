@@ -83,7 +83,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="mt-30 lg:mb-0 mb-20 min-h-screen relative">
+    <section className="mt-30 lg:mb-0 mb-20 relative">
       {/* Floating Elements */}
       <motion.div
         variants={floatingVariants.float}
@@ -120,7 +120,7 @@ const HeroSection = () => {
               </div>
 
               <motion.h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-tight">
-                <span className="block adlam-display-regular">
+                <span className="block inter-fonts">
                   MD. Rahmatullah
                 </span>
                 <div className="flex items-center mt-2">
@@ -142,7 +142,7 @@ const HeroSection = () => {
 
             <motion.p
               variants={itemVariants}
-              className="text-gray-300 font-mono text-lg md:text-xl leading-relaxed max-w-2xl"
+              className="text-gray-200 font-thin text-lg md:text-xl leading-relaxed max-w-2xl"
             >
               I’m a passionate MERN Stack Developer with hands-on experience in
               building responsive, optimized, and scalable web applications
@@ -181,8 +181,8 @@ const HeroSection = () => {
             >
               {/* Resume Button */}
               <a
-                href="/Purple and White Clean and Professional Resume.pdf"
-                download="Purple and White Clean and Professional Resume.pdf"
+                href="/My_Resume.pdf"
+                download="My_Resume.pdf"
                 className="group flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25"
               >
                 <FileText className="w-5 h-5 mr-2" />
@@ -268,7 +268,7 @@ const HeroSection = () => {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-40 left-1/2 transform -translate-x-1/2 text-gray-400"
+        className="absolute  left-1/2 transform -translate-x-1/2 text-gray-400"
       >
         <div className="flex flex-col items-center space-y-2">
           <span className="text-xs tracking-wide">Scroll Down</span>
