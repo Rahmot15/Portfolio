@@ -120,9 +120,7 @@ const HeroSection = () => {
               </div>
 
               <motion.h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-tight">
-                <span className="block inter-fonts">
-                  MD. Rahmatullah
-                </span>
+                <span className="block inter-fonts">MD. Rahmatullah</span>
                 <div className="flex items-center mt-2">
                   <div className="w-12 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 mr-4" />
                   <span className="bg-gradient-to-r from-blue-400 font-mono to-purple-500 bg-clip-text text-transparent text-xl md:text-3xl font-semibold">
@@ -181,8 +179,8 @@ const HeroSection = () => {
             >
               {/* Resume Button */}
               <a
-                href="/My_Resume.pdf"
-                download="My_Resume.pdf"
+                href="https://drive.google.com/uc?export=download&id=1J8NOe9EVd49TbFaTbL5nDgFJtOz-NtWE"
+                rel="noopener noreferrer"
                 className="group flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25"
               >
                 <FileText className="w-5 h-5 mr-2" />
