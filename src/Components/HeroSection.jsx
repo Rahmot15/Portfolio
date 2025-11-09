@@ -10,7 +10,18 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Typewriter } from "react-simple-typewriter";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"; // eslint-disable-line no-unused-vars
+import {
+  SiExpress,
+  SiFirebase,
+  SiGit,
+  SiJavascript,
+  SiMongodb,
+  SiNodedotjs,
+  SiPostman,
+  SiReact,
+  SiTailwindcss,
+} from "react-icons/si";
 
 const HeroSection = () => {
   const floatingVariants = {
@@ -211,10 +222,18 @@ const HeroSection = () => {
               </div>
 
               {/* Corner Decorations */}
-              <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-br from-blue-400 to-purple-500 rounded-lg transform rotate-45" />
-              <div className="absolute -top-4 -right-4 w-6 h-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full" />
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full" />
-              <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-gradient-to-br from-green-400 to-blue-500 rounded-lg transform rotate-12" />
+              <div className="absolute -top-4 -left-4 ">
+                <SiReact className="w-6 h-6 text-blue-400 " />
+              </div>
+              <div className="absolute -top-4 -right-4 ">
+                <SiNodedotjs className="w-6 h-6 text-green-500" />
+              </div>
+              <div className="absolute -bottom-4 -left-4">
+                <SiFirebase className="w-6 h-6 text-red-500" />
+              </div>
+              <div className="absolute -bottom-4 -right-4">
+                <SiTailwindcss className="w-6 h-6 text-cyan-400" />
+              </div>
 
               {/* Floating Icons */}
               <motion.div
@@ -222,7 +241,7 @@ const HeroSection = () => {
                 transition={{ duration: 4, repeat: Infinity }}
                 className="absolute -top-8 left-1/2 transform -translate-x-1/2 p-2 bg-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-lg"
               >
-                <Code className="w-5 h-5 text-green-400" />
+                <SiJavascript className="w-5 h-5 text-yellow-400" />
               </motion.div>
 
               <motion.div
@@ -230,7 +249,7 @@ const HeroSection = () => {
                 transition={{ duration: 5, repeat: Infinity }}
                 className="absolute top-1/2 -right-12 transform -translate-y-1/2 p-2 bg-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-lg"
               >
-                <Database className="w-5 h-5 text-blue-400" />
+                <SiMongodb className="w-5 h-5 text-green-600" />
               </motion.div>
 
               <motion.div
@@ -238,7 +257,7 @@ const HeroSection = () => {
                 transition={{ duration: 6, repeat: Infinity }}
                 className="absolute top-1/2 -left-12 transform -translate-y-1/2 p-2 bg-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-lg"
               >
-                <Globe className="w-5 h-5 text-purple-400" />
+                <SiExpress className="w-5 h-5 text-gray-200" />
               </motion.div>
 
               {/* Main Photo Container */}
@@ -248,7 +267,7 @@ const HeroSection = () => {
                   <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
                     <div className="text-center">
                       <div className="bg-gradient-to-br from-blue-400 to-purple-500 rounded-full mx-auto flex items-center justify-center">
-                        <img src="./me3.png" alt="" />
+                        <img src="/me2.png" alt="" />
                       </div>
                     </div>
                   </div>
